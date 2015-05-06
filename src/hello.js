@@ -10,10 +10,7 @@ var Ponto = function(x, y) {
 }
 
 function mundo_pequeno(ponto_atual,outros_pontos) {
-	var proximos = [];
-	
-
-	return ponto_atual.toString();
+	return outros_pontos;
 }
 
 module.exports.mundo_pequeno = mundo_pequeno;
