@@ -16,21 +16,11 @@ var Ponto = function(x, y) {
 }
 
 function mundo_pequeno(ponto_atual,outros_pontos) {
-	var pontos_com_distancia = outros_pontos.map(function(ponto){
-		return {'distancia' : ponto_atual.distanciaPara(ponto),
-		 				'ponto' : ponto};
+	pontos_ordenados = outros_pontos.sort(function(p1,p2){
+		return p1.distanciaPara(ponto_atual) - p2.distanciaPara(ponto_atual);
 	});
 
-	pontos_ordenados = pontos_com_distancia.sort(function(p1,p2){
-		return p1.distancia - p2.distancia;
-	})
-
-	var amigos_proximos = pontos_ordenados.slice(0,3);
-
-	// Pequena gambi
-	return amigos_proximos.map(function(ponto_com_distancia){
-		return ponto_com_distancia.ponto;
-	});
+	return pontos_ordenados.slice(0,3);
 }
 
 module.exports.mundo_pequeno = mundo_pequeno;
