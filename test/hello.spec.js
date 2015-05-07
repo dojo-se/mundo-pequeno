@@ -67,4 +67,21 @@ describe('mundo_pequeno', function(){
 		var proximos = hello.mundo_pequeno(eu, outros);
 		assert.equal(proximos.toString(), '(2,2),(2,3),(2,4)');
 	});
+
+	it('amigos mais proximos da zueira 2', function() {
+		var outros = [
+			new hello.Ponto(2,2),
+			new hello.Ponto(19,50),
+			new hello.Ponto(2,3),
+			new hello.Ponto(2,4),
+			new hello.Ponto(9,5),
+			new hello.Ponto(90,55)
+		];
+		for(var i=0; i<1000; i++){
+			outros.push(new hello.Ponto(i+5,i+5));
+		}
+		var eu = new hello.Ponto(1,1);
+		var proximos = hello.mundo_pequeno(eu, outros);
+		assert.equal(proximos.toString(), '(2,2),(2,3),(2,4)');
+	});
 });
