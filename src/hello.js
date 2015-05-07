@@ -6,14 +6,18 @@ var Ponto = function(x, y) {
 		return '(' + this.x + ',' + this.y + ')';
 	}
 
+	this.distanciaPara = function(ponto) {
+		var dx = Math.pow(this.x - ponto.x,2);
+		var dy = Math.pow(this.y - ponto.y,2);
+		return Math.sqrt(dx + dy);
+	}
+
 	return this;
 }
 
 function mundo_pequeno(ponto_atual,outros_pontos) {
 	var pontos_com_distancia = outros_pontos.map(function(ponto){
-		var dx = Math.pow(ponto_atual.x - ponto.x,2);
-		var dy = Math.pow(ponto_atual.y - ponto.y,2);
-		return {'distancia' : Math.sqrt(dx + dy),
+		return {'distancia' : ponto_atual.distanciaPara(ponto),
 		 				'ponto' : ponto};
 	});
 
